@@ -30,8 +30,13 @@ public class WhileLoops {
     * countEvensUpTo(10) -> 5 // {2, 4, 6, 8, 10}
     */
    public static int countEvensUpTo(int n) {
-       // YOUR CODE HERE
-       return -1;
+       int i = 2;
+       int count = 0;
+       while (i <= n) {
+           i += 2;
+           count++;
+       }
+       return count;
    }
 
 
@@ -47,8 +52,18 @@ public class WhileLoops {
     * digitSum(199) -> 19 // 1 + 9 + 9
     */
    public static int digitSum(int n) {
-       // YOUR CODE HERE
-       return -1;
+       int digit = 1;
+       int numWithoutPrev = n;
+       int singleDigit = 0;
+       int sum = 0;
+       while (numWithoutPrev > 0){
+           singleDigit = numWithoutPrev % (10 * digit) / digit;
+           numWithoutPrev -= singleDigit * digit;
+           sum += singleDigit;
+           digit *= 10;
+       }
+
+       return sum;
    }
 
 
@@ -72,8 +87,12 @@ public class WhileLoops {
     * // can't subtract without going negative
     */
    public static int countDownBy(int start, int step) {
-       // YOUR CODE HERE
-       return -1;
+       if (step <= 0) return start;
+       int count = start;
+       while (count - step >= 0){
+           count -= step;
+       }
+       return count;
    }
 
 
@@ -105,8 +124,14 @@ public class WhileLoops {
     * // 10 -> 20 -> 30 -> 40
     */
    public static int weeksToReachGoal(int startBalance, int weeklyDeposit, int goalBalance) {
-       // CODE HERE
-       return -1;
+       if (startBalance >= goalBalance) return 0;
+       int currBalance = startBalance;
+       int count = 0;
+       while (currBalance < goalBalance) {
+           currBalance += weeklyDeposit;
+           count++;
+       }
+       return count;
    }
 
 
@@ -140,8 +165,13 @@ public class WhileLoops {
     * // battery would never drain
     */
    public static int minutesUntilDead(int startPercent, int perMinuteUse) {
-       //YOUR CODE HERE
-       return -1;
+    if (perMinuteUse <= 0 || startPercent <= 0) return 0;
+       int count = 0;
+       while (startPercent > 0) {
+           startPercent -= perMinuteUse;
+           count++;
+       }
+       return count;
    }
 }
 
